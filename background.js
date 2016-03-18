@@ -27,11 +27,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendRequest){
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   chrome.tabs.getSelected(null, function(tab) {
-  	console.log('选中的 tab');
     var tabId = tab.id;
 	  var code = '$("body").css("background","'+request.colorVal+'")'
 	  chrome.tabs.executeScript(tabId,{code : code});
-    console.log(tab);
   });
   
 });
